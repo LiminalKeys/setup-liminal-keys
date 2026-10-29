@@ -1,0 +1,29 @@
+name: Setup Liminal Keys CLI (public)
+description: Download and verify the Liminal Keys CLI from the public API (no GitHub token).
+inputs:
+  version:
+    description: CLI semver (matches published cli-v* version, without prefix)
+    required: true
+  sha256:
+    description: Expected SHA-256 hex for this runner OS/arch (from release SHA256SUMS.txt)
+    required: true
+  api-base-url:
+    description: Liminal Keys API base URL
+    required: false
+    default: https://api.liminalkeys.com
+runs:
+  using: composite
+  steps:
+    - name: Install CLI
+      shell: bash
+      env:
+        INPUT_VERSION: ${{ inputs.version }}
+        INPUT_SHA256: ${{ inputs.sha256 }}
+        LIMINAL_KEYS_API_BASE_URL: ${{ inputs.api-base-url }}
+      run: |
+        set -euo pipefail
+        if [[ ! "${LIMINAL_KEYS_API_BASE_URL}" =~ ^https:// ]]; then
+          echo "::error::api-base-url must use https"
+          exit 1
+        fi
+        "${{ github.action_path }}/install-cli.sh"
