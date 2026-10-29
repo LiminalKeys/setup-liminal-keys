@@ -26,4 +26,4 @@ runs:
           echo "::error::api-base-url must use https"
           exit 1
         fi
-        "${{ github.action_path }}/install-cli.sh"
+        bash "${{ github.action_path }}/install-cli.sh"
