@@ -1,6 +1,11 @@
 # Setup Liminal Keys CLI
 
-GitHub Action: download and verify the **Liminal Keys CLI** from the public API (`GET /v1/public/cli/versions/{version}` + short-lived blob URL). **No secrets**, no GitHub token.
+**Liminal Keys** is a control layer over signatures: signing certificates and keys stay in Key Vault, and workspace policy (deny, require approval, or auto-sign) plus human approval decide when a signature is allowed. It supports two workflows:
+
+- **AI agent / document signing** — official Claude plugin, MCP connector, and a bundled PDF/PAdES helper. [Sign PDFs and documents with Claude (AI agents docs)](https://www.liminalkeys.com/docs/agents/)
+- **App and code signing** — Mac, Xcode, and CI, without copying private keys onto laptops or runners. [Product](https://www.liminalkeys.com/) · [CI & pipelines](https://www.liminalkeys.com/docs/pipelines/)
+
+This repository is **only** a GitHub Action that installs the **Liminal Keys CLI** from the public API (`GET /v1/public/cli/versions/{version}` + short-lived blob URL). **No secrets**, no GitHub token. It is not the Claude plugin, and it is not how you sign a PDF.
 
 Pin `version` and `sha256` from the release checksum table below (or from API metadata `assets[].sha256`).
 
