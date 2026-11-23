@@ -1,6 +1,6 @@
 # Setup Liminal Keys CLI
 
-**Liminal Keys** is a control layer over signatures: signing certificates and keys stay in Key Vault, and workspace policy (deny, require approval, or auto-sign) plus human approval decide when a signature is allowed. It supports two workflows:
+**Liminal Keys** lets Claude sign documents and files with your own certificate, under your rules, with approval on your phone. PDFs come back with a visible signature; other file types can be signed too. Keys stay in Key Vault, and workspace policy (deny, require approval, or auto-sign) plus human approval decide when a signature is allowed. It supports two workflows:
 
 - **AI agent / document signing** — official Claude plugin, MCP connector, and a bundled PDF/PAdES helper. [Sign PDFs and documents with Claude (AI agents docs)](https://www.liminalkeys.com/docs/agents/)
 - **App and code signing** — Mac, Xcode, and CI, without copying private keys onto laptops or runners. [Product](https://www.liminalkeys.com/) · [CI & pipelines](https://www.liminalkeys.com/docs/pipelines/)
